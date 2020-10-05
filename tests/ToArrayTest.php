@@ -73,4 +73,5 @@ class ToArrayTest extends TestCase
         $this->assertEquals('secret', $array['protected']);
         $this->assertEquals('value', $array['public']['key']);
     }
+    // test comment
 }
