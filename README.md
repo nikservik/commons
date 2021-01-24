@@ -4,8 +4,9 @@
 ## История версий
 
 ### 1.05
-- добавлен объект Settings 
-- Settings реализует SaveLoadInterface
+- добавлен фасад Settings, который пока загружает настройки по умолчанию
+- добавлен SettingsStorage
+- SettingsStorage реализует SaveLoadInterface
 
 ### 1.04
 - добавлено Number::ordinal() - добавляет количественное окончание st/nd/rt/th
