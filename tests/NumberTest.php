@@ -141,4 +141,59 @@ class NumberTest extends TestCase
     {
         $this->assertFalse(Number::between(12, 3, 6));
     }
+
+    public function testPluralRu1()
+    {
+        $this->assertEquals('1 год', Number::pluralRu(1, ['год', 'года', 'лет']));
+    }
+
+    public function testPluralRu2()
+    {
+        $this->assertEquals('2 года', Number::pluralRu(2, ['год', 'года', 'лет']));
+    }
+
+    public function testPluralRu4()
+    {
+        $this->assertEquals('4 года', Number::pluralRu(4, ['год', 'года', 'лет']));
+    }
+
+    public function testPluralRu5()
+    {
+        $this->assertEquals('5 лет', Number::pluralRu(5, ['год', 'года', 'лет']));
+    }
+
+    public function testPluralRu10()
+    {
+        $this->assertEquals('10 лет', Number::pluralRu(10, ['год', 'года', 'лет']));
+    }
+
+    public function testPluralRu11()
+    {
+        $this->assertEquals('11 лет', Number::pluralRu(11, ['год', 'года', 'лет']));
+    }
+
+    public function testPluralRu14()
+    {
+        $this->assertEquals('14 лет', Number::pluralRu(14, ['год', 'года', 'лет']));
+    }
+
+    public function testPluralRu21()
+    {
+        $this->assertEquals('21 год', Number::pluralRu(21, ['год', 'года', 'лет']));
+    }
+
+    public function testPluralRu55()
+    {
+        $this->assertEquals('55 лет', Number::pluralRu(55, ['год', 'года', 'лет']));
+    }
+
+    public function testPluralRu100()
+    {
+        $this->assertEquals('100 лет', Number::pluralRu(100, ['год', 'года', 'лет']));
+    }
+
+    public function testPluralRu101()
+    {
+        $this->assertEquals('101 год', Number::pluralRu(101, ['год', 'года', 'лет']));
+    }
 }
