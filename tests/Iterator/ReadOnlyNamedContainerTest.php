@@ -168,7 +168,8 @@ class ReadOnlyNamedContainerTest extends TestCase
             ->add(ContainableNamed::factory())
             ->add(ContainableNamed::factory());
 
-        foreach ($elements as $index => $element)
+        foreach ($elements as $index => $element) {
             $this->assertEquals($element, $elements[$index]);
+        }
     }
 }

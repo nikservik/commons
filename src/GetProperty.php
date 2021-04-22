@@ -6,11 +6,13 @@ trait GetProperty
 {
     protected function getProperty(string $property, $object = null)
     {
-        if (! $object)
+        if (! $object) {
             $object = $this;
+        }
 
-        if (! str_contains($property, '.'))
+        if (! str_contains($property, '.')) {
             return $object->$property;
+        }
 
         list($innerObject, $innerProperty) = explode('.', $property, 2);
 

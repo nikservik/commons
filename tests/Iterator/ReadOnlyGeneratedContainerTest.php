@@ -26,8 +26,9 @@ class ReadOnlyGeneratedContainerTest extends TestCase
     {
         $elements = new ReadOnlyGeneratedTestable;
 
-        foreach ($elements as $name => $element)
+        foreach ($elements as $name => $element) {
             $this->assertEquals($name, $element->getName());
+        }
     }
 
     public function testOffsetExists()

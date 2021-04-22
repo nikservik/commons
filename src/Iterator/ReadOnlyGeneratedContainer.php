@@ -13,11 +13,13 @@ abstract class ReadOnlyGeneratedContainer extends ReadOnlyNamedContainer
 
     public function getElement(string $name, string $method = ''): ?ContainableNamedInterface
     {
-        if (! in_array($name, $this->allowedElements))
+        if (! in_array($name, $this->allowedElements)) {
             return null;
+        }
 
-        if (! isset($this->elements[$name][$method]))
+        if (! isset($this->elements[$name][$method])) {
             $this->elements[$name][$method] = $this->generateElement($name, $method);
+        }
 
         return $this->elements[$name][$method];
     }

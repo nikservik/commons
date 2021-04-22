@@ -8,22 +8,26 @@ class Number
 
     public static function ordinal(int $number): string
     {
-        if ($number % 100 >= 11 && $number % 100 <= 13)
+        if ($number % 100 >= 11 && $number % 100 <= 13) {
             return $number. self::$ends[0];
-        else
+        } else {
             return $number. self::$ends[$number % 10];
+        }
     }
 
     public static function pluralRu(int $number, array $forms): string
     {
-        if (count($forms) < 3)
+        if (count($forms) < 3) {
             return ''.$number;
+        }
 
-        if ($number % 10 == 1 && $number % 100 != 11)
+        if ($number % 10 == 1 && $number % 100 != 11) {
             return $number . ' ' . $forms[0];
+        }
 
-        if ($number % 10 >= 2 && $number % 10 <= 4 && ($number % 100 < 10 || $number % 100 >= 20))
+        if ($number % 10 >= 2 && $number % 10 <= 4 && ($number % 100 < 10 || $number % 100 >= 20)) {
             return $number . ' ' . $forms[1];
+        }
 
         return $number . ' ' . $forms[2];
     }
