@@ -2,12 +2,9 @@
 
 namespace Nikservik\Commons\Iterator;
 
-use Nikservik\Commons\Iterator\ContainableNamedInterface;
-use Nikservik\Commons\Iterator\ReadOnlyNamedContainer;
-
 abstract class ReadOnlyGeneratedContainer extends ReadOnlyNamedContainer
 {
-    protected $allowedElements;
+    protected array $allowedElements;
 
     public function __construct(array $allowedElements)
     {
@@ -38,7 +35,7 @@ abstract class ReadOnlyGeneratedContainer extends ReadOnlyNamedContainer
     }
 
     public function offsetExists($offset): bool
-    {   
+    {
         return $this->has($offset);
     }
 
@@ -62,7 +59,7 @@ abstract class ReadOnlyGeneratedContainer extends ReadOnlyNamedContainer
         return isset($this->allowedElements[$this->currentIndex]);
     }
 
-    public function count(): int 
+    public function count(): int
     {
         return count($this->allowedElements);
     }

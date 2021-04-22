@@ -1,43 +1,11 @@
 <?php
 
-namespace Tests\Unit;
+namespace Nikservik\Commons\Tests;
 
+use Exception;
+use Nikservik\Commons\Tests\Testables\WithAccessors;
+use Nikservik\Commons\Tests\Testables\WithoutAccessors;
 use PHPUnit\Framework\TestCase;
-use Nikservik\Commons\VirtualProperties;
-
-class WithoutAccessors
-{
-    use VirtualProperties;
-
-    private $private;
-
-    public function __construct($private)
-    {
-        $this->private = $private;
-    }
-}
-
-class WithAccessors
-{
-    use VirtualProperties;
-    
-    private $private;
-
-    public function __construct($private)
-    {
-        $this->private = $private;
-    }
-
-    public function getPrivate()
-    {
-        return $this->private;
-    }
-
-    public function setPrivate($private)
-    {
-        return $this->private = $private;
-    }
-}
 
 class VirtualPropertiesTest extends TestCase
 {
@@ -48,7 +16,7 @@ class VirtualPropertiesTest extends TestCase
 
         $this->assertEquals('good', $good->private);
 
-        $this->expectException(\Exception::class);
+        $this->expectException(Exception::class);
         $this->assertEquals('bad', $bad->private);
     }
 
@@ -61,7 +29,7 @@ class VirtualPropertiesTest extends TestCase
         $good->private = 'new good';
         $this->assertEquals('new good', $good->private);
 
-        $this->expectException(\Exception::class);
+        $this->expectException(Exception::class);
         $good->private = 'new bad';
         $this->assertEquals('new bad', $bad->private);
     }

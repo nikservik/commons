@@ -2,13 +2,11 @@
 
 namespace Nikservik\Commons;
 
-use Illuminate\Support\Str;
-
 class Number
 {
-    protected static $ends = ['th','st','nd','rd','th','th','th','th','th','th'];
+    protected static array $ends = ['th','st','nd','rd','th','th','th','th','th','th'];
 
-    public static function ordinal(int $number): string 
+    public static function ordinal(int $number): string
     {
         if ($number % 100 >= 11 && $number % 100 <= 13)
             return $number. self::$ends[0];
@@ -16,7 +14,7 @@ class Number
             return $number. self::$ends[$number % 10];
     }
 
-    public static function pluralRu(int $number, array $forms): string 
+    public static function pluralRu(int $number, array $forms): string
     {
         if (count($forms) < 3)
             return ''.$number;

@@ -2,9 +2,6 @@
 
 namespace Nikservik\Commons\Iterator;
 
-use Nikservik\Commons\Iterator\ContainableNamedInterface;
-use Nikservik\Commons\Iterator\ReadOnlyContainer;
-
 class ReadOnlyNamedContainer extends ReadOnlyContainer
 {
     public function add(ContainableInterface $element): ReadOnlyNamedContainer
@@ -25,7 +22,7 @@ class ReadOnlyNamedContainer extends ReadOnlyContainer
     }
 
     public function offsetExists($offset): bool
-    {   
+    {
         if (is_string($offset))
             return $this->has($offset);
 
@@ -34,7 +31,7 @@ class ReadOnlyNamedContainer extends ReadOnlyContainer
 
     public function offsetGet($offset): ?ContainableNamedInterface
     {
-        if (is_string($offset)) 
+        if (is_string($offset))
             foreach ($this->elements as $element)
                 if ($element->getName() == $offset)
                     return $element;

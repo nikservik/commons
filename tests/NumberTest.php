@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Commons;
+namespace Nikservik\Commons\Tests;
 
 use Nikservik\Commons\Number;
 use PHPUnit\Framework\TestCase;

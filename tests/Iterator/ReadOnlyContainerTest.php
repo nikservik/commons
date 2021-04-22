@@ -1,14 +1,10 @@
 <?php
 
-namespace Tests\Commons\Iterator;
+namespace Nikservik\Commons\Tests\Iterator;
 
-use Nikservik\Commons\Iterator\ContainableInterface;
 use Nikservik\Commons\Iterator\ReadOnlyContainer;
+use Nikservik\Commons\Tests\Testables\Containable;
 use PHPUnit\Framework\TestCase;
-
-class Containable implements ContainableInterface
-{
-}
 
 class ReadOnlyContainerTest extends TestCase
 {
@@ -23,14 +19,14 @@ class ReadOnlyContainerTest extends TestCase
     {
         $elements = new ReadOnlyContainer;
 
-        $this->assertEquals(0, count($elements));
+        $this->assertCount(0, $elements);
     }
 
     public function testAdd()
     {
         $elements = (new ReadOnlyContainer)->add($element = new Containable);
 
-        $this->assertEquals(1, count($elements));
+        $this->assertCount(1, $elements);
         $this->assertInstanceOf(Containable::class, $elements[0]);
         $this->assertEquals($element, $elements[0]);
     }

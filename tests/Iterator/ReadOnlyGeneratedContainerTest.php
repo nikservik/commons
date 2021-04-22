@@ -1,23 +1,10 @@
 <?php
 
-namespace Tests\Commons\Iterator;
+namespace Nikservik\Commons\Tests\Iterator;
 
-use Faker\Factory;
-use Nikservik\Commons\Iterator\ContainableNamedInterface;
-use Nikservik\Commons\Iterator\ReadOnlyGeneratedContainer;
+use Nikservik\Commons\Tests\Testables\ContainableNamed;
+use Nikservik\Commons\Tests\Testables\ReadOnlyGeneratedTestable;
 use PHPUnit\Framework\TestCase;
-
-class ReadOnlyGeneratedTestable extends ReadOnlyGeneratedContainer
-{
-    public function __construct()
-    {
-        parent::__construct(['Mo', 'Su']);
-    }
-    public function generateElement(string $name, string $method = ''): ContainableNamedInterface
-    {
-        return new ContainableNamed($name);
-    }
-}
 
 class ReadOnlyGeneratedContainerTest extends TestCase
 {
@@ -32,7 +19,7 @@ class ReadOnlyGeneratedContainerTest extends TestCase
     {
         $elements = new ReadOnlyGeneratedTestable;
 
-        $this->assertEquals(2, count($elements));
+        $this->assertCount(2, $elements);
     }
 
     public function testIterate()

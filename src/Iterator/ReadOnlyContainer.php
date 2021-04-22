@@ -2,14 +2,16 @@
 
 namespace Nikservik\Commons\Iterator;
 
-use Nikservik\Commons\Iterator\ContainableInterface;
+use ArrayAccess;
+use Countable;
+use Iterator;
 
-class ReadOnlyContainer implements \ArrayAccess, \Iterator, \Countable
+class ReadOnlyContainer implements ArrayAccess, Iterator, Countable
 {
-    protected $elements = [];
-    protected $currentIndex;
+    protected array $elements = [];
+    protected int $currentIndex;
 
-    public function add(ContainableInterface $element): ReadOnlyContainer
+    public function add(ContainableInterface $element): self
     {
         $this->elements[] = $element;
 
@@ -18,7 +20,7 @@ class ReadOnlyContainer implements \ArrayAccess, \Iterator, \Countable
 
     public function __call($method, $args)
     {
-        
+
     }
 
     public function clear(): void
@@ -27,7 +29,7 @@ class ReadOnlyContainer implements \ArrayAccess, \Iterator, \Countable
     }
 
     public function offsetExists($offset): bool
-    {   
+    {
         return array_key_exists($offset, $this->elements);
     }
 
@@ -69,7 +71,7 @@ class ReadOnlyContainer implements \ArrayAccess, \Iterator, \Countable
         return isset(array_keys($this->elements)[$this->currentIndex]);
     }
 
-    public function count(): int 
+    public function count(): int
     {
         return count($this->elements);
     }

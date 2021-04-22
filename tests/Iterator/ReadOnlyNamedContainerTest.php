@@ -1,33 +1,10 @@
 <?php
 
-namespace Tests\Commons\Iterator;
+namespace Nikservik\Commons\Tests\Iterator;
 
-use Faker\Factory;
-use Nikservik\Commons\Iterator\ContainableNamedInterface;
 use Nikservik\Commons\Iterator\ReadOnlyNamedContainer;
+use Nikservik\Commons\Tests\Testables\ContainableNamed;
 use PHPUnit\Framework\TestCase;
-
-class ContainableNamed implements ContainableNamedInterface
-{
-    protected $name;
-
-    public function __construct(string $name)
-    {
-        $this->name = $name;
-    }
-
-    public function getName(): string
-    {
-        return $this->name;
-    }
-
-    public static function factory(array $options = []): ContainableNamed
-    {
-        $faker = Factory::create();
-
-        return new ContainableNamed($options['name'] ?? $faker->name);
-    }
-}
 
 class ReadOnlyNamedContainerTest extends TestCase
 {
@@ -42,14 +19,14 @@ class ReadOnlyNamedContainerTest extends TestCase
     {
         $elements = new ReadOnlyNamedContainer;
 
-        $this->assertEquals(0, count($elements));
+        $this->assertCount(0, $elements);
     }
 
     public function testAdd()
     {
-        $elements = (new ReadOnlyNamedContainer)->add($element = ContainableNamed::factory(['name' => 'Mo']));
+        $elements = (new ReadOnlyNamedContainer)->add(ContainableNamed::factory(['name' => 'Mo']));
 
-        $this->assertEquals(1, count($elements));
+        $this->assertCount(1, $elements);
         $this->assertInstanceOf(ContainableNamed::class, $elements[0]);
         $this->assertEquals('Mo', $elements[0]->getName());
     }
@@ -79,7 +56,7 @@ class ReadOnlyNamedContainerTest extends TestCase
 
         $elements->clear();
 
-        $this->assertEquals(0, count($elements));
+        $this->assertCount(0, $elements);
     }
 
     public function testOffsetExists()
@@ -161,7 +138,7 @@ class ReadOnlyNamedContainerTest extends TestCase
 
     public function testOffsetGetByNameNull()
     {
-        $elements = (new ReadOnlyNamedContainer)->add($element = ContainableNamed::factory(['name' => 'Mo']));
+        $elements = (new ReadOnlyNamedContainer)->add(ContainableNamed::factory(['name' => 'Mo']));
 
         $this->assertNull($elements->offsetGet('Su'));
     }
