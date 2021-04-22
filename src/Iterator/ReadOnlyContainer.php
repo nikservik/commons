@@ -20,7 +20,6 @@ class ReadOnlyContainer implements ArrayAccess, Iterator, Countable
 
     public function __call($method, $args)
     {
-
     }
 
     public function clear(): void

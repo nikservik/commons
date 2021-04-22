@@ -122,7 +122,8 @@ class ReadOnlyContainerTest extends TestCase
             ->add(new Containable())
             ->add(new Containable());
 
-        foreach ($elements as $index => $element)
+        foreach ($elements as $index => $element) {
             $this->assertEquals($element, $elements[$index]);
+        }
     }
 }

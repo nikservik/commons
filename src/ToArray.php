@@ -8,8 +8,9 @@ trait ToArray
 
     public function toArray(): array
     {
-        if (! property_exists($this, 'toArray'))
+        if (! property_exists($this, 'toArray')) {
             return [];
+        }
 
         $array = [];
         foreach ($this->toArray as $name => $property) {
