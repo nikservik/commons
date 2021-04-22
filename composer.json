@@ -18,7 +18,7 @@
         "phpunit/phpunit": "^9.3",
         "vimeo/psalm": "^3.11",
         "nesbot/carbon": "^2.42.0",
-        "fzaninotto/faker": "^1.9"
+        "fakerphp/faker": "^1.14"
     },
     "autoload": {
         "psr-4": {
