@@ -9,7 +9,7 @@ trait GetProperty
         if (! $object)
             $object = $this;
 
-        if (! str_contains($property, '.'))
+        if (strpos($property, '.') === false)
             return $object->$property;
 
         list($innerObject, $innerProperty) = explode('.', $property, 2);
