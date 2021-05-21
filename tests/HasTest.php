@@ -40,4 +40,11 @@ class HasTest extends TestCase
 
         $this->assertTrue(Has::feature("test", "feature"));
     }
+
+    public function test_has_feature_in_dot_separated_string()
+    {
+        Config::set('test.features', ['some_feature', 'feature']);
+
+        $this->assertTrue(Has::feature("test.feature"));
+    }
 }
