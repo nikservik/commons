@@ -1,6 +1,8 @@
 ## TODO
 
 ## История версий
+### 1.08
+- Has::feature('config', 'feature') проверяет, включена ли фича в конфиге
 
 ### 1.07
 - Settings вынесены в отдельный пакет nikservik/user-settings

@@ -11,13 +11,15 @@
     ],
     "require": {
         "php": "^7.4|^8.0",
-        "ext-json": "*"
+        "ext-json": "*",
+        "illuminate/config": "^8.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16",
         "phpunit/phpunit": "^9.3",
         "vimeo/psalm": "^3.11",
         "nesbot/carbon": "^2.42.0",
+        "orchestra/testbench": "^6.16",
         "fakerphp/faker": "^1.14"
     },
     "autoload": {
