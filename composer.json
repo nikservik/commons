@@ -32,6 +32,13 @@
             "Nikservik\\Commons\\Tests\\": "tests"
         }
     },
+    "extra": {
+        "laravel": {
+            "aliases": {
+                "Has": "Nikservik\\Commons\\Has"
+            }
+        }
+    },
     "scripts": {
         "psalm": "vendor/bin/psalm",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
