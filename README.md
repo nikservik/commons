@@ -1,6 +1,9 @@
 ## TODO
 
 ## История версий
+### 1.09
+- добавлены Translatable и TranslatableField
+
 ### 1.08
 - Has::feature('config', 'feature') проверяет, включена ли фича в конфиге
 
