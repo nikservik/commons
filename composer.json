@@ -36,7 +36,10 @@
         "laravel": {
             "aliases": {
                 "Has": "Nikservik\\Commons\\Has"
-            }
+            },
+            "providers": [
+                "Nikservik\\Commons\\CommonsServiceProvider"
+            ]
         }
     },
     "scripts": {

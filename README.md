@@ -1,6 +1,9 @@
 ## TODO
 
 ## История версий
+### 1.10
+- добавлены email-шаблоны
+
 ### 1.09
 - добавлены Translatable и TranslatableField
 
