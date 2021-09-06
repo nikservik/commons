@@ -3,6 +3,7 @@
 ## История версий
 ### 1.10
 - добавлены email-шаблоны
+- добавлены notification-шаблоны
 
 ### 1.09
 - добавлены Translatable и TranslatableField
