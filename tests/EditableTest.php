@@ -48,6 +48,13 @@ class EditableTest extends TestCase
         $this->assertEquals('<p>test<br>ttt</p><p>4</p>', $content);
     }
 
+    public function test_envelopes_with_p_empty()
+    {
+        $content = Editable::envelopeWithP('');
+
+        $this->assertEquals('<p></p>', $content);
+    }
+
     public function test_envelopes_with_p_full()
     {
         $content = Editable::envelopeWithP('test<br>ttt');
