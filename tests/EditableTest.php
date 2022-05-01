@@ -71,28 +71,35 @@ class EditableTest extends TestCase
 
     public function test_trims_last_empty_p()
     {
-        $content = Editable::trimLastEmptyPs('<p>test</p><p>4</p><p></p>');
+        $content = Editable::trimEmptyPs('<p>test</p><p>4</p><p></p>');
 
         $this->assertEquals('<p>test</p><p>4</p>', $content);
     }
 
     public function test_trims_last_empty_p_with_br()
     {
-        $content = Editable::trimLastEmptyPs('<p>test</p><p>4</p><p><br></p>');
+        $content = Editable::trimEmptyPs('<p>test</p><p>4</p><p><br></p>');
 
         $this->assertEquals('<p>test</p><p>4</p>', $content);
     }
 
     public function test_trims_last_empty_ps()
     {
-        $content = Editable::trimLastEmptyPs('<p>test</p><p>4</p><p></p><p></p><p></p>');
+        $content = Editable::trimEmptyPs('<p>test</p><p>4</p><p></p><p></p><p></p>');
 
         $this->assertEquals('<p>test</p><p>4</p>', $content);
     }
 
     public function test_trims_last_empty_ps_with_br()
     {
-        $content = Editable::trimLastEmptyPs('<p>test</p><p>4</p><p><br></p><p><br></p><p><br></p>');
+        $content = Editable::trimEmptyPs('<p>test</p><p>4</p><p><br></p><p><br></p><p><br></p>');
+
+        $this->assertEquals('<p>test</p><p>4</p>', $content);
+    }
+
+    public function test_trims_first_empty_ps_with_br()
+    {
+        $content = Editable::trimEmptyPs('<p><br></p><p><br></p><p><br></p><p>test</p><p>4</p>');
 
         $this->assertEquals('<p>test</p><p>4</p>', $content);
     }

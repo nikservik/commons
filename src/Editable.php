@@ -44,7 +44,7 @@ class Editable
         // оборачиваем в р, если его нет
         $content = self::envelopeWithP($content);
         // убираем завершающие пустые р
-        $content = self::trimLastEmptyPs($content);
+        $content = self::trimEmptyPs($content);
         // заменяем повторяющиеся пустые р на один
         $content = self::replaceMultipleP($content);
 
@@ -99,17 +99,21 @@ class Editable
     }
 
     /**
-     * Удаляет пустые р в конце текста
+     * Удаляет пустые р в начале и в конце текста
      * @param string $content
      * @return string
      */
-    public static function trimLastEmptyPs(string $content): string
+    public static function trimEmptyPs(string $content): string
     {
         // обрезаем пустые символы
         $content = trim($content);
         // обрезаем пустые р в конце текста
         while (substr($content, -7) == '<p></p>') {
             $content = trim(substr($content, 0, -7));
+        }
+        // обрезаем пустые р c br в начале текста
+        while (substr($content, 0, 11) == '<p><br></p>') {
+            $content = trim(substr($content, 11));
         }
         // обрезаем пустые р c br в конце текста
         while (substr($content, -11) == '<p><br></p>') {
