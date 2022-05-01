@@ -111,6 +111,10 @@ class Editable
         while (substr($content, -7) == '<p></p>') {
             $content = trim(substr($content, 0, -7));
         }
+        // обрезаем пустые р c br в конце текста
+        while (substr($content, -11) == '<p><br></p>') {
+            $content = trim(substr($content, 0, -11));
+        }
 
         return $content;
     }
@@ -123,6 +127,7 @@ class Editable
     public static function replaceMultipleP(string $content): string
     {
         // обрезаем пустые символы
+        $content = preg_replace("/(<p><br><\/p>)+/", "<p><br></p>", $content);
         $content = preg_replace("/(<p><\/p>)+/", "<p></p>", $content);
 
         return $content;
