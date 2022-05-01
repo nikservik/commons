@@ -68,4 +68,25 @@ class EditableTest extends TestCase
 
         $this->assertEquals('<p>test<br>ttt</p><p>4</p>', $content);
     }
+
+    public function test_trims_last_empty_p()
+    {
+        $content = Editable::trimLastEmptyPs('<p>test</p><p>4</p><p></p>');
+
+        $this->assertEquals('<p>test</p><p>4</p>', $content);
+    }
+
+    public function test_trims_last_empty_ps()
+    {
+        $content = Editable::trimLastEmptyPs('<p>test</p><p>4</p><p></p><p></p><p></p>');
+
+        $this->assertEquals('<p>test</p><p>4</p>', $content);
+    }
+
+    public function test_replaces_multiple_empty_ps()
+    {
+        $content = Editable::replaceMultipleP('<p>test</p><p></p><p></p><p></p><p>4</p>');
+
+        $this->assertEquals('<p>test</p><p></p><p>4</p>', $content);
+    }
 }
