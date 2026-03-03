@@ -37,6 +37,7 @@ composer test-coverage
 ## История версий
 ### 1.17
 - добавлена совместимость dev-зависимостей с Laravel 11 (`orchestra/testbench ^9.0`) с сохранением ранее поддерживаемых диапазонов
+- диапазон `phpunit/phpunit` расширен до `^9.3|^10.0|^11.0|^12.0`
 - `config.audit.ignore` сохранён для PKSA-8qx3-n5y5-vvnd и PKSA-w7xr-vk7n-rstm
 
 ### 1.16
